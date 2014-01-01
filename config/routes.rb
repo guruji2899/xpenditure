@@ -1,4 +1,6 @@
 Xpenditure::Application.routes.draw do
+  resources :expenses
+
   get "welcome/index"
   devise_for :users , :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
 
