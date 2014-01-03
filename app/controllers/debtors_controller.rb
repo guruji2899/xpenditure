@@ -1,10 +1,11 @@
 class DebtorsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_debtor, only: [:show, :edit, :update, :destroy]
 
   # GET /debtors
   # GET /debtors.json
   def index
-    @debtors = Debtor.all
+    @debtors = current_user.debtors
   end
 
   # GET /debtors/1
@@ -25,7 +26,7 @@ class DebtorsController < ApplicationController
   # POST /debtors.json
   def create
     @debtor = Debtor.new(debtor_params)
-
+    @debtor.user = current_user
     respond_to do |format|
       if @debtor.save
         format.html { redirect_to @debtor, notice: 'Debtor was successfully created.' }
@@ -64,7 +65,7 @@ class DebtorsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_debtor
-      @debtor = Debtor.find(params[:id])
+      @debtor = current_user.debtors.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

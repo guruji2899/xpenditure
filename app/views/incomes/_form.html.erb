@@ -1,10 +1,10 @@
-<%= form_for(@debtor) do |f| %>
-  <% if @debtor.errors.any? %>
+<%= form_for(@income) do |f| %>
+  <% if @income.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@debtor.errors.count, "error") %> prohibited this debtor from being saved:</h2>
+      <h2><%= pluralize(@income.errors.count, "error") %> prohibited this income from being saved:</h2>
 
       <ul>
-      <% @debtor.errors.full_messages.each do |msg| %>
+      <% @income.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -14,10 +14,6 @@
   <div class="field">
     <%= f.label :date %><br>
     <%= f.date_select :date, {:order => [:day, :month, :year], :use_short_month => true }, {:class => "date"} %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :amount %><br>

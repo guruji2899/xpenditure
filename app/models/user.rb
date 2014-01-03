@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
   has_many :expenses
   has_many :debtors
   has_many :creditors
+  has_many :incomes
+  
 end

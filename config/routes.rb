@@ -1,4 +1,6 @@
 Xpenditure::Application.routes.draw do
+  resources :incomes
+
   resources :creditors
 
   resources :debtors

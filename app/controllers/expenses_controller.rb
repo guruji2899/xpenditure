@@ -1,10 +1,11 @@
 class ExpensesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
 
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses = Expense.all
+    @expenses = current_user.expenses
   end
 
   # GET /expenses/1
@@ -25,7 +26,7 @@ class ExpensesController < ApplicationController
   # POST /expenses.json
   def create
     @expense = Expense.new(expense_params)
-
+    @expense.user = current_user
     respond_to do |format|
       if @expense.save
         format.html { redirect_to @expense, notice: 'Expense was successfully created.' }
@@ -64,7 +65,7 @@ class ExpensesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_expense
-      @expense = Expense.find(params[:id])
+      @expense = current_user.expenses.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

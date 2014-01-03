@@ -1,10 +1,11 @@
 class CreditorsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_creditor, only: [:show, :edit, :update, :destroy]
 
   # GET /creditors
   # GET /creditors.json
   def index
-    @creditors = Creditor.all
+    @creditors = current_user.creditors
   end
 
   # GET /creditors/1
@@ -25,7 +26,7 @@ class CreditorsController < ApplicationController
   # POST /creditors.json
   def create
     @creditor = Creditor.new(creditor_params)
-
+    @creditor.user = current_user
     respond_to do |format|
       if @creditor.save
         format.html { redirect_to @creditor, notice: 'Creditor was successfully created.' }
@@ -64,7 +65,7 @@ class CreditorsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_creditor
-      @creditor = Creditor.find(params[:id])
+      @creditor = current_user.creditors.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
