@@ -1,4 +1,8 @@
 Xpenditure::Application.routes.draw do
+  resources :creditors
+
+  resources :debtors
+
   resources :expenses
 
   get "welcome/index"
