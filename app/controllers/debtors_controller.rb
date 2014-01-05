@@ -11,6 +11,7 @@ class DebtorsController < ApplicationController
   # GET /debtors/1
   # GET /debtors/1.json
   def show
+    @debts = @debtor.debts
   end
 
   # GET /debtors/new
@@ -70,6 +71,6 @@ class DebtorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def debtor_params
-      params.require(:debtor).permit(:name, :amount, :description)
+      params.require(:debtor).permit(:name, :amount, :description, :date)
     end
 end

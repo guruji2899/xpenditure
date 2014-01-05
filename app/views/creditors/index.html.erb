@@ -1,6 +1,7 @@
-<h1>Listing creditors</h1>
-
-<table>
+<%= link_to 'New Creditor', new_creditor_path, :class => "btn btn-success pull-right"%>
+<h1>Creditors</h1>
+<div class="table-responsive">
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -17,15 +18,15 @@
       <tr>
         <td><%= creditor.name %></td>
         <td><%= creditor.amount %></td>
-        <td><%= creditor.description %></td>
-        <td><%= link_to 'Show', creditor %></td>
-        <td><%= link_to 'Edit', edit_creditor_path(creditor) %></td>
-        <td><%= link_to 'Destroy', creditor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td style="max-width: 200px;"><%= creditor.description %></td>
+        <td><%= link_to 'Show', creditor, :class => "btn btn-info" %>
+        <%= link_to 'Edit', edit_creditor_path(creditor) , :class => "btn btn-primary"%>
+        <%= link_to 'Destroy', creditor, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
-<%= link_to 'New Creditor', new_creditor_path %>
+
