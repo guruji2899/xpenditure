@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tran_date: 2014-01-10
+  amount: 1.5
+  type: 
+  description: MyText
+  account_id: 1
+
+two:
+  tran_date: 2014-01-10
+  amount: 1.5
+  type: 
+  description: MyText
+  account_id: 1

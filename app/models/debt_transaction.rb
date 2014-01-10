@@ -1,0 +1,2 @@
+class DebtTransaction < Transaction
+end
