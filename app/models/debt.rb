@@ -1,3 +1,2 @@
-class Debt < ActiveRecord::Base
-  belongs_to :debtor
+class Debt < Transaction
 end

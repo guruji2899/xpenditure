@@ -5,8 +5,6 @@ Xpenditure::Application.routes.draw do
     resources :transactions
   end
 
-  resources :debts
-
   resources :incomes
 
   resources :creditors

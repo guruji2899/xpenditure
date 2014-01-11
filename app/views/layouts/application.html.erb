@@ -51,11 +51,9 @@
             <ul class="nav">
               <li><%= link_to "Desboard", "/"  %></li>
               <li><%= link_to "Expenses", expenses_path  %></li>
-              <li><%= link_to "Creditors", creditors_path  %></li>
-              <li><%= link_to "Debtors", debtors_path  %></li>
               <li><%= link_to "Incomes", incomes_path  %></li>
               <li><%= link_to "Accounts", accounts_path  %></li>
-              <li><%= link_to "Transactions", "#"  %></li>
+              
             </ul>
             <ul class="nav pull-right">
               <% if user_signed_in? %>
