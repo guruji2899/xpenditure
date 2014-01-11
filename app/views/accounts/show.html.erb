@@ -1,14 +1,70 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @account.name %>
-</p>
+<div class="row-fluid">
+  <div class="span6">
+    <strong>Name:</strong><br />
+    <h3><%= @account.name %></h3>
+  </div>
+  <div class="span3">
+    <strong>Balance:</strong>
+   <h3> Rs.<%= "  20410" %></h3>
+  </div>
 
-<p>
-  <strong>User:</strong>
-  <%= @account.user_id %>
-</p>
+  <div class="span3">
+    <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">New Transaction</button>
+  </div>
+</div>
+<br/>
+<div class="row-fluid" id="debtor-details">
+  <%= render 'transactions/transactions' %>
+</div>
 
-<%= link_to 'Edit', edit_account_path(@account) %> |
-<%= link_to 'Back', accounts_path %>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+
+
+<%= form_for([@account, Transaction.new]) do |f| %>
+   
+  <div class="field">
+    <%= f.label :tran_date %><br>
+    <%= f.date_select :tran_date %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.select :type, Transaction::TRANS_TYPE %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+ 
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+

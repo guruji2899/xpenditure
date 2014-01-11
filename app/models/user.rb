@@ -7,5 +7,5 @@ class User < ActiveRecord::Base
   has_many :debtors
   has_many :creditors
   has_many :incomes
-  
+  has_many :accounts
 end

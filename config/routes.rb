@@ -1,7 +1,9 @@
 Xpenditure::Application.routes.draw do
-  resources :transactions
+  
 
-  resources :accounts
+  resources :accounts do
+    resources :transactions
+  end
 
   resources :debts
 

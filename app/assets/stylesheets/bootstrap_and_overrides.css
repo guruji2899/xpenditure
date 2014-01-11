@@ -9,3 +9,6 @@
 select.date{
 width: 70px;
 }
+.modal {
+  display: none;
+}
