@@ -7,7 +7,7 @@
       <th>Amount</th>
       <th>Description</th>
       <th>Category</th>
-      <th></th>
+      <th>Expense on</th>
       <th></th>
       <th></th>
     </tr>
@@ -19,6 +19,7 @@
         <td><%= expense.amount %></td>
         <td style="max-width: 200px;"><%= expense.description %></td>
         <td><%= expense.category.name %></td>
+        <td><%= expense.date %></td>
         <td><%= link_to 'Show', expense , :class => "btn btn-info" %>
         <%= link_to 'Edit', edit_expense_path(expense), :class => "btn btn-primary" %>
         <%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>

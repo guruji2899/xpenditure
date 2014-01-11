@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
-  has_many :expenses
+  has_many :expenses,  :order => "date DESC"
   has_many :debtors
   has_many :creditors
   has_many :incomes
