@@ -12,4 +12,6 @@ class Account < ActiveRecord::Base
   def balance
     transactions.credit_trans.sum(:amount) - transactions.debt_trans.sum(:amount)
   end
+
+  
 end

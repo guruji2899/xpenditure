@@ -16,12 +16,21 @@
   <tbody>
     <% @incomes.each do |income| %>
       <tr>
-        <td><%= income.date %></td>
-        <td><%= income.amount %></td>
+        <td><%= income.date.strftime("%d, %b %Y") %></td>
+        <td><%= number_to_currency(income.amount, :unit => '') %></td>
         <td><%= income.description %></td>
-        <td><%= link_to 'Show', income , :class => "btn btn-info"%>
-        <%= link_to 'Edit', edit_income_path(income) , :class => "btn btn-primary"%>
-        <%= link_to 'Destroy', income, method: :delete, data: { confirm: 'Are you sure?' } , :class => "btn btn-danger"%></td>
+        <td><%= link_to income , :class => "btn btn-info" do %>
+        <span class="icon-check"></span>
+        <% end %>
+        <%= link_to edit_income_path(income) , :class => "btn btn-primary" do %>
+          <span class="icon-edit"></span>
+        <% end %>
+        <%= link_to income, method: :delete, data: { confirm: 'Are you sure?' } , :class => "btn btn-danger"  do %>
+         <span class="icon-remove"></span>
+        <% end %>
+        </td>
+        
+
       </tr>
     <% end %>
   </tbody>
