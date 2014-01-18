@@ -77,9 +77,11 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
+              <% if user_signed_in? %>
               <li class="nav-header">Current Month's</li>
-              <li>Expenses: <%= number_to_currency(current_user.expenses.current_month) %></li>
-              <li><%= link_to "Link2", "#"  %></li>
+              <li>Expenses: <%= number_to_currency(current_user.expenses.current_month, :unit => "Rs. ") %></li>
+              <li>Accounts Sum: <%= number_to_currency(current_user.accounts_sum, :unit => "INR ") %></li>
+              <% end %>
               <li><%= link_to "Link3", "#"  %></li>
               <li><%= link_to "Link1", "#"  %></li>
               <li><%= link_to "Link2", "#"  %></li>

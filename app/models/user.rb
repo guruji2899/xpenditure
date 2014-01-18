@@ -8,4 +8,10 @@ class User < ActiveRecord::Base
   has_many :creditors
   has_many :incomes
   has_many :accounts
+
+  def accounts_sum
+    sum = 0.0
+    accounts.each{|acc| sum = sum + acc.balance.try(:to_f) }
+    return sum
+  end
 end
