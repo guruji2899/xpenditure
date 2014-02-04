@@ -7,4 +7,12 @@ class Expense < ActiveRecord::Base
  def self.current_month
    created_between(Time.now.beginning_of_month, Time.now.end_of_month).sum(:amount)
  end
+ 
+ def self.current_period(from_date, to_date)
+   from_date = from_date || Time.now.beginning_of_month
+   to_date = to_date || Time.now.end_of_month
+   created_between(from_date, to_date)
+ end
+ 
+ 
 end

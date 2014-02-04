@@ -5,7 +5,8 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses = current_user.expenses
+    period =  params[:period].present? ? params[:period].split("-") : []
+    @expenses = current_user.expenses.current_period(period[0],period[1])
   end
 
   # GET /expenses/1
