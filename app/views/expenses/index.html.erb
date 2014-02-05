@@ -1,7 +1,6 @@
 <%= javascript_include_tag "daterangepicker","moment" %>
 
-<form class="">
- <fieldset>
+<form>
   <div class="control-group">
 	<div class="controls">
 	 <div class="input-prepend input-group">
@@ -9,20 +8,21 @@
 	   <input type="text" style="width: 200px" name="period" id="period" class="form-control" /> 
 	   <button type="submit" class="btn">Submit</button>
 	 </div>
+	 <div class="pull-right"><h2>Total:  <%= number_to_currency(@total_amount, :unit => " ") %></h2></div>
 	</div>
   </div>
- </fieldset>
+ 
 </form>
 
-               <script type="text/javascript">
-               $(document).ready(function() {
-                  $('#period').daterangepicker();
-               });
-               </script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#period').daterangepicker();
+});
+</script>
 
 <div class="row-fluid">
 
-<%= link_to 'New Expense', new_expense_path  , :class => "btn btn-success pull-right", :style=>"margin-right:5px;"%>
+<%#= link_to 'New Expense', new_expense_path  , :class => "btn btn-success pull-right", :style=>"margin-right:5px;"%>
 
 </div>
 <h1>My Expenses</h1>

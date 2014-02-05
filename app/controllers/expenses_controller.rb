@@ -7,6 +7,7 @@ class ExpensesController < ApplicationController
   def index
     period =  params[:period].present? ? params[:period].split("-") : []
     @expenses = current_user.expenses.current_period(period[0],period[1])
+    @total_amount = @expenses.sum(:amount)
   end
 
   # GET /expenses/1
