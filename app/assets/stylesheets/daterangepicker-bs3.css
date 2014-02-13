@@ -24,7 +24,7 @@
 }
 
 .daterangepicker .ranges {
-  width: 160px;
+  width: 195px;
   text-align: left;
 }
 
@@ -38,7 +38,7 @@
 
 .daterangepicker .calendar {
   display: none;
-  max-width: 270px;
+  max-width: 300px;
 }
 
 .daterangepicker .calendar.single .calendar-date {
