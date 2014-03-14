@@ -76,22 +76,22 @@
         </div>
         <div class="span3">
           <div class="well sidebar-nav">
-            <ul class="nav nav-list">
+			  
+			 
+			  
+            <ul class="nav nav-list" style="border: 1px dashed #000;padding-top:10px; padding-bottom:15px;">
+				<li style="padding-bottom: 10px;"> 
+				<img src="/assets/img138.jpg" class="img-polaroid" style="width:100px;height:100px;" >
+				Gyan Gupta
+				
+				</li>
               <% if user_signed_in? %>
-              <li class="nav-header">Current Month's</li>
-              <li>Expenses: <%= number_to_currency(current_user.expenses.current_month, :unit => "Rs. ") %></li>
-              <li>Accounts Sum: <%= number_to_currency(current_user.accounts_sum, :unit => "INR ") %></li>
+              <li>Current Expenses:
+               <%= number_to_currency(current_user.expenses.current_month, :unit => "Rs. ") %></li>
+              <li>Total Expenses: <%= number_to_currency(current_user.expenses.current_month, :unit => "Rs. ") %></li>
+              <li>Accounts Sum: <%= number_to_currency(current_user.accounts_sum, :unit => "RS. ") %></li>
+              <li> <%= link_to 'Add Expenses', new_expense_path%></li>
               <% end %>
-              <li><%= link_to "Link3", "#"  %></li>
-              <li><%= link_to "Link1", "#"  %></li>
-              <li><%= link_to "Link2", "#"  %></li>
-              <li><%= link_to "Link3", "#"  %></li>
-              <li><%= link_to "Link1", "#"  %></li>
-              <li><%= link_to "Link2", "#"  %></li>
-              <li><%= link_to "Link3", "#"  %></li>
-              <li><%= link_to "Link1", "#"  %></li>
-              <li><%= link_to "Link2", "#"  %></li>
-              <li><%= link_to "Link3", "#"  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
