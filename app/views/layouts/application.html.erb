@@ -80,15 +80,12 @@
 			 
 			  
             <ul class="nav nav-list" style="border: 1px dashed #000;padding-top:10px; padding-bottom:15px;">
-				<li style="padding-bottom: 10px;"> 
-				<img src="/assets/img138.jpg" class="img-polaroid" style="width:100px;height:100px;" >
-				Gyan Gupta
 				
-				</li>
               <% if user_signed_in? %>
-              <li>Current Expenses:
+              <li style="padding-bottom: 10px;"> <h4> <%= current_user.name%> </h4> </li>
+              <li>Current Month:
                <%= number_to_currency(current_user.expenses.current_month, :unit => "Rs. ") %></li>
-              <li>Total Expenses: <%= number_to_currency(current_user.expenses.current_month, :unit => "Rs. ") %></li>
+              <li>Currnet Year: <%= number_to_currency(current_user.expenses.current_year, :unit => "Rs. ") %></li>
               <li>Accounts Sum: <%= number_to_currency(current_user.accounts_sum, :unit => "RS. ") %></li>
               <li> <%= link_to 'Add Expenses', new_expense_path%></li>
               <% end %>

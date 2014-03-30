@@ -14,5 +14,9 @@ class Expense < ActiveRecord::Base
    created_between(from_date, to_date)
  end
  
+ def self.current_year
+   created_between(Time.now.beginning_of_year, Time.now.end_of_year).sum(:amount)
+ end
+ 
  
 end

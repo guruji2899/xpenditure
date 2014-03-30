@@ -27,7 +27,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">New Transaction Form</h4>
       </div>
       <div class="modal-body">
 
@@ -35,19 +35,19 @@
 <%= form_for([@account, Transaction.new]) do |f| %>
    
   <div class="field">
-    <%= f.label :tran_date %><br>
-    <%= f.date_select :tran_date %>
+    <%= f.label :tran_date %>
+    <%= f.date_select :tran_date, {:order => [:day, :month, :year], :use_short_month => true }, {:class => "date"} %>
   </div>
   <div class="field">
-    <%= f.label :amount %><br>
+    <%= f.label :amount %>
     <%= f.text_field :amount %>
   </div>
   <div class="field">
-    <%= f.label :type %><br>
+    <%= f.label :type %>
     <%= f.select :type, Transaction::TRANS_TYPE %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
  
