@@ -1,6 +1,6 @@
 class Account < ActiveRecord::Base
   belongs_to :user
-  has_many :transactions do
+  has_many :transactions, :order => "tran_date DESC" do
     def debt_trans
       where(:type => "Debt")
     end

@@ -58,7 +58,7 @@ class TransactionsController < ApplicationController
   def destroy
     @transaction.destroy
     respond_to do |format|
-      format.html { redirect_to transactions_url }
+      format.html { redirect_to @transaction.account }
       format.json { head :no_content }
     end
   end
