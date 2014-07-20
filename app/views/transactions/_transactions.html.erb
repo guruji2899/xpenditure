@@ -19,7 +19,11 @@
         <td><%= trans.type %></td>
         <td><%= trans.amount %></td>
         <td><%= trans.description %></td>
-        
+        <td><%= link_to edit_account_transaction_path(@account, trans) , :class => "btn" do %>
+          <span class="icon-edit"></span>
+        <% end %>
+        </td>
+
       </tr>
     <% end %>
   </tbody>
